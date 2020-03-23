@@ -9,14 +9,18 @@ interface ConditionsProps {
 function Conditions({ conditions }: ConditionsProps) {
   return (
     <div className="bottom">
-      <h2>Possible conditions:</h2>
-      <ul>
-        {conditions?.map(cond => (
-          <li key={cond.id}>
-            {cond.common_name} [{cond.probability}]
-          </li>
-        ))}
-      </ul>
+      {conditions && conditions.length > 0 && (
+        <>
+          <h2>Possible conditions:</h2>
+          <ul>
+            {conditions?.map(cond => (
+              <li key={cond.id}>
+                {cond.common_name} [{cond.probability}]
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 }
