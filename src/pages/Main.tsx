@@ -17,7 +17,7 @@ function Main() {
     addEvidence,
     addEvidences
   } = useHandleEvidence();
-  const [diagnoseReady, setDiagnoseReady] = useState(false);
+  const [diagnoseReady, setDiagnoseReady] = useState(true); // Switch to false for general med and not just Covid-19
 
   return (
     <div className="main">

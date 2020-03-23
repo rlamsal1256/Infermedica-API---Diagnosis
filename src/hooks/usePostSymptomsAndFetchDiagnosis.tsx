@@ -31,8 +31,8 @@ export function usePostSymptomsAndFetchDiagnosis({
     const fetchDiagnosis = async () => {
       try {
         const response = await axios.post(
-          'https://api.infermedica.com/v2/diagnosis',
-          // 'https://api.infermedica.com/covid19/diagnosis',
+          // 'https://api.infermedica.com/v2/diagnosis' ---> This url is for general med,
+          'https://api.infermedica.com/covid19/diagnosis',
           body,
           {
             headers: {

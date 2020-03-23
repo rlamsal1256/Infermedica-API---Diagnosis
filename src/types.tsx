@@ -36,3 +36,24 @@ export type Evidence = {
 };
 
 export type ChoiceId = 'present' | 'absent';
+
+export interface TriageResponse {
+  triage_level: TriageLevel;
+  label: string;
+  description: string;
+  serious: Serious[];
+}
+
+export type TriageLevel =
+  | 'no_risk'
+  | 'self_monitoring'
+  | 'quarantine'
+  | 'isolation_call'
+  | 'isolation_ambulance';
+
+export type Serious = {
+  common_name: string;
+  id: string;
+  is_emergency: boolean;
+  name: string;
+};

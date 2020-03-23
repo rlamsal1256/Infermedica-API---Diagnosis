@@ -2,6 +2,7 @@ import React from 'react';
 
 import Question from './Question';
 import Conditions from './Conditions';
+import Triage from './Triage';
 import { usePostSymptomsAndFetchDiagnosis } from '../hooks/usePostSymptomsAndFetchDiagnosis';
 
 import { Evidence } from '../types';
@@ -19,11 +20,15 @@ function Diagnosis(props: DiagnosisProps) {
 
   return (
     <>
-      <Question
-        question={diagnosis.question}
-        onAnswer={props.onNewSymptom}
-        onMultipleAnswer={props.onMultiNewSymptoms}
-      />
+      {!diagnosis.should_stop ? (
+        <Question
+          question={diagnosis.question}
+          onAnswer={props.onNewSymptom}
+          onMultipleAnswer={props.onMultiNewSymptoms}
+        />
+      ) : (
+        <Triage evidences={props.evidences} />
+      )}
       <Conditions conditions={diagnosis.conditions} />
     </>
   );
